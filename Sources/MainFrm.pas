@@ -22,7 +22,7 @@ uses
 
 type
   TMainForm = class(TDxForm)
-    Panel1: TPanel;
+    PanelTop: TPanel;
     Image1: TImage;
     LblAppName: TLabel;
     Label2: TLabel;
@@ -68,6 +68,7 @@ type
     Panel5: TPanel;
     BtnRun: TcxButton;
     BtnExit: TcxButton;
+    PanelBottom: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure URLLinkClick(Sender: TObject; const Link: string; LinkType: TSysLinkType);
     procedure InstallExecute(Sender: TObject);
@@ -106,6 +107,7 @@ procedure TMainForm.FormCreate(Sender: TObject);
 var
   ReadmeFile: String;
 begin
+  if Height > Screen.WorkAreaHeight then Height := Screen.WorkAreaHeight;
   Caption := Application.Title;
   LblAppName.Caption := Application.Title;
   LblVersion.Caption := GetVersionStr();
@@ -224,15 +226,9 @@ end;
 procedure TMainForm.InstallExecute(Sender: TObject);
 var
   IDEs: TDxIDEArray;
-  I: Integer;
 begin
-  if FTreeList.GetSelectedComponentCount = 0 then Exit;
-  for I := 0 to FInstaller.IDEs.Count - 1 do begin
-    if FInstaller.GetInstallComponentCount(FInstaller.IDEs[I]) > 0 then begin
-      SetLength(IDEs, Length(IDEs) + 1);
-      IDEs[Length(IDEs) - 1] := FInstaller.IDEs[I];
-    end;
-  end;
+  IDEs := FTreeList.GetSelectedIDEs;
+  if Length(IDEs) = 0 then Exit;
   RunInstaller(FInstaller.Install, IDEs);
 end;
 

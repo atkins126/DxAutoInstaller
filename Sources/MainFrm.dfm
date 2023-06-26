@@ -2,27 +2,22 @@ object MainForm: TMainForm
   Left = 0
   Top = 0
   Caption = 'MainForm'
-  ClientHeight = 582
-  ClientWidth = 804
+  ClientHeight = 834
+  ClientWidth = 618
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  DesignSize = (
-    804
-    582)
-  PixelsPerInch = 96
   TextHeight = 15
-  object Panel1: TPanel
+  object PanelTop: TPanel
     Left = 0
     Top = 0
-    Width = 804
+    Width = 618
     Height = 97
     Align = alTop
     BevelEdges = [beBottom]
@@ -32,10 +27,10 @@ object MainForm: TMainForm
     ParentBackground = False
     TabOrder = 0
     DesignSize = (
-      804
+      618
       95)
     object Image1: TImage
-      Left = 722
+      Left = 536
       Top = 16
       Width = 64
       Height = 64
@@ -123,31 +118,32 @@ object MainForm: TMainForm
     end
   end
   object PageFuns: TPageControl
+    AlignWithMargins = True
     Left = 8
     Top = 109
-    Width = 789
-    Height = 436
-    ActivePage = TabAbout
-    Anchors = [akLeft, akTop, akRight, akBottom]
+    Width = 602
+    Height = 685
+    Margins.Left = 8
+    Margins.Top = 12
+    Margins.Right = 8
+    Margins.Bottom = 0
+    ActivePage = TabInstall
+    Align = alClient
     TabOrder = 1
     OnChange = PageFunsChange
     object TabInstall: TTabSheet
       Caption = 'Install'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel5: TPanel
         Left = 0
         Top = 0
-        Width = 781
-        Height = 406
+        Width = 594
+        Height = 655
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
         DesignSize = (
-          781
-          406)
+          594
+          655)
         object Label7: TLabel
           Left = 8
           Top = 10
@@ -156,17 +152,18 @@ object MainForm: TMainForm
           Caption = 'Installation File Directory:'
         end
         object Label8: TLabel
-          Left = 710
+          Left = 523
           Top = 10
           Width = 41
           Height = 15
           Anchors = [akTop, akRight]
           Caption = 'Version:'
+          ExplicitLeft = 710
         end
         object EditInstallFileDir: TButtonedEdit
           Left = 8
           Top = 30
-          Width = 696
+          Width = 509
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           Images = ImageSmall
@@ -177,7 +174,7 @@ object MainForm: TMainForm
           OnRightButtonClick = EditInstallFileDirRightButtonClick
         end
         object EditVersion: TEdit
-          Left = 710
+          Left = 523
           Top = 30
           Width = 61
           Height = 23
@@ -188,8 +185,8 @@ object MainForm: TMainForm
         object PanTreeList: TPanel
           Left = 8
           Top = 62
-          Width = 763
-          Height = 335
+          Width = 576
+          Height = 584
           Anchors = [akLeft, akTop, akRight, akBottom]
           BevelKind = bkTile
           BevelOuter = bvNone
@@ -200,34 +197,39 @@ object MainForm: TMainForm
     object TabUninstall: TTabSheet
       Caption = 'Uninstall'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel4: TPanel
         Left = 0
         Top = 0
-        Width = 781
-        Height = 406
+        Width = 594
+        Height = 655
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
-        DesignSize = (
-          781
-          406)
         object Label9: TLabel
+          AlignWithMargins = True
           Left = 8
           Top = 10
-          Width = 343
+          Width = 578
           Height = 15
+          Margins.Left = 8
+          Margins.Top = 10
+          Margins.Right = 8
+          Margins.Bottom = 10
+          Align = alTop
           Caption = 'Uninstall DevExpress Components in the Following Selected IDEs:'
+          ExplicitWidth = 343
         end
         object IDEListView: TListView
+          AlignWithMargins = True
           Left = 8
-          Top = 30
-          Width = 763
-          Height = 367
-          Anchors = [akLeft, akTop, akRight, akBottom]
+          Top = 35
+          Width = 578
+          Height = 610
+          Margins.Left = 8
+          Margins.Top = 0
+          Margins.Right = 8
+          Margins.Bottom = 10
+          Align = alClient
           Checkboxes = True
           Columns = <
             item
@@ -237,6 +239,9 @@ object MainForm: TMainForm
           ReadOnly = True
           TabOrder = 0
           ViewStyle = vsReport
+          ExplicitTop = 30
+          ExplicitWidth = 576
+          ExplicitHeight = 616
         end
       end
     end
@@ -246,25 +251,29 @@ object MainForm: TMainForm
       object Panel3: TPanel
         Left = 0
         Top = 0
-        Width = 781
-        Height = 406
+        Width = 594
+        Height = 655
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
-        DesignSize = (
-          781
-          406)
         object GroupBox1: TGroupBox
+          AlignWithMargins = True
           Left = 8
-          Top = 104
-          Width = 763
-          Height = 294
-          Anchors = [akLeft, akTop, akRight, akBottom]
+          Top = 102
+          Width = 578
+          Height = 543
+          Margins.Left = 8
+          Margins.Right = 8
+          Margins.Bottom = 10
+          Align = alClient
           Caption = 'Profile'
           TabOrder = 1
+          ExplicitTop = 104
+          ExplicitWidth = 576
+          ExplicitHeight = 542
           DesignSize = (
-            763
-            294)
+            578
+            543)
           object LblCurrentProfile: TLabel
             Left = 16
             Top = 32
@@ -293,23 +302,30 @@ object MainForm: TMainForm
           object LblCustomProfile: TLinkLabel
             Left = 16
             Top = 88
-            Width = 730
+            Width = 545
             Height = 19
             Anchors = [akLeft, akTop, akRight]
             AutoSize = False
             Caption = 'Custom Profile:'
             TabOrder = 1
             OnLinkClick = URLLinkClick
+            ExplicitWidth = 543
           end
         end
         object GroupBox2: TGroupBox
+          AlignWithMargins = True
           Left = 8
           Top = 10
-          Width = 763
+          Width = 578
           Height = 79
-          Anchors = [akLeft, akTop, akRight]
+          Margins.Left = 8
+          Margins.Top = 10
+          Margins.Right = 8
+          Margins.Bottom = 10
+          Align = alTop
           Caption = 'Packages'
           TabOrder = 0
+          ExplicitWidth = 576
           object Button1: TButton
             Left = 16
             Top = 32
@@ -330,14 +346,14 @@ object MainForm: TMainForm
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 781
-        Height = 406
+        Width = 594
+        Height = 655
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
         DesignSize = (
-          781
-          406)
+          594
+          655)
         object Label4: TLabel
           Left = 8
           Top = 21
@@ -371,9 +387,9 @@ object MainForm: TMainForm
         object LinkDownDoc: TLinkLabel
           Left = 8
           Top = 89
-          Width = 297
+          Width = 188
           Height = 19
-          Caption = 'https://www.devexpress.com/support/documentation/'
+          Caption = 'https://docs.devexpress.com/VCL/'
           TabOrder = 1
           OnLinkClick = URLLinkClick
         end
@@ -389,8 +405,8 @@ object MainForm: TMainForm
         object MemoReadme: TMemo
           Left = 8
           Top = 172
-          Width = 763
-          Height = 225
+          Width = 576
+          Height = 473
           Anchors = [akLeft, akTop, akRight, akBottom]
           ReadOnly = True
           ScrollBars = ssVertical
@@ -399,35 +415,46 @@ object MainForm: TMainForm
       end
     end
   end
-  object ChkHideBaseComponents: TCheckBox
-    Left = 20
-    Top = 555
-    Width = 167
-    Height = 17
-    Anchors = [akLeft, akBottom]
-    Caption = 'Hide Base Components'
-    Checked = True
-    State = cbChecked
+  object PanelBottom: TPanel
+    Left = 0
+    Top = 794
+    Width = 618
+    Height = 40
+    Align = alBottom
+    BevelOuter = bvNone
     TabOrder = 2
-    OnClick = RefreshTreeList
-  end
-  object BtnRun: TcxButton
-    Left = 627
-    Top = 551
-    Width = 75
-    Height = 25
-    Action = Install
-    Anchors = [akRight, akBottom]
-    TabOrder = 3
-  end
-  object BtnExit: TcxButton
-    Left = 708
-    Top = 551
-    Width = 75
-    Height = 25
-    Action = ExitApp
-    Anchors = [akRight, akBottom]
-    TabOrder = 4
+    DesignSize = (
+      618
+      40)
+    object BtnExit: TcxButton
+      Left = 521
+      Top = 7
+      Width = 75
+      Height = 25
+      Action = ExitApp
+      Anchors = [akTop, akRight]
+      TabOrder = 2
+    end
+    object BtnRun: TcxButton
+      Left = 439
+      Top = 7
+      Width = 75
+      Height = 25
+      Action = Install
+      Anchors = [akTop, akRight]
+      TabOrder = 1
+    end
+    object ChkHideBaseComponents: TCheckBox
+      Left = 20
+      Top = 11
+      Width = 167
+      Height = 17
+      Caption = 'Hide Base Components'
+      Checked = True
+      State = cbChecked
+      TabOrder = 0
+      OnClick = RefreshTreeList
+    end
   end
   object ActionBase: TActionList
     Images = ImageSmall
@@ -470,7 +497,7 @@ object MainForm: TMainForm
     Left = 400
     Top = 368
     Bitmap = {
-      494C010107000800040010001000FFFFFFFF2100FFFFFFFFFFFFFFFF424D3600
+      494C010107000800040010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       00000000000000000000000000000000000000000000686565D7908C8CF58E8A
       8AF58D8989F58C8888F58B8787F58A8686F5898585F5888585F5888585F58784
@@ -738,7 +765,8 @@ object MainForm: TMainForm
       0000000000000003000000000000000100000000000000010000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000003000000000000000300000000000000030000000000000003
-      000000000000FC07000000000000FFFF}
+      000000000000FC07000000000000FFFF00000000000000000000000000000000
+      000000000000}
     DesignInfo = 24117648
     ImageInfo = <
       item
